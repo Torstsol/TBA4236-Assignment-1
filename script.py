@@ -49,6 +49,8 @@ p = np.asmatrix([[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0],
                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0],
                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4]])
+print("the weight matrix")
+print(p)
 
 # The A matrix
 A = np.asmatrix(np.zeros((21, 6)))
@@ -63,8 +65,13 @@ for i in range(0, 21):
     garbage = float(input_data.readline())
     garbage = float(input_data.readline())
 
+print("the design matrix")
+print(A)
+
 # the vector of estimated coefficients
 x = (np.linalg.inv(A.transpose()*p*A))*A.transpose()*p*f
+
+print(x)
 
 # Estimated corrections
 v = (A*x-f)
