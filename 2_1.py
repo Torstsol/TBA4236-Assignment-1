@@ -1,31 +1,22 @@
 import numpy as np
 
-np.set_printoptions(precision=3)
+#np.set_printoptions(precision=4)
 
 # The H-h vector
-f = np.asmatrix([[39.632,
-                 39.572,
-                 39.565,
-                 39.520,
-                 39.434,
-                 39.606,
-                 39.665,
-                 39.545,
-                 39.585, 
-                 39.545,
-                 39.535,
-                 39.553,
-                 40.055,
-                 40.120, 
-                 39.778,
-                 39.870,
-                 39.318,
-                 39.337,
-                 39.548,
-                 39.148,
-                 39.555]])
+f = np.asmatrix([[-81.1581,
+                  -81.1422,
+                  -82.9131,
+                  -82.8905,
+                  -82.8979,
+                  -82.8963,
+                   -1.7519,
+                   -0.0144,
+                   -0.0124, 
+                   -0.0078,
+                    0.0197]])
 
 f = f.transpose()
+print(f)
 
 # The weight matrix
 p = np.asmatrix([[1.0000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -63,6 +54,7 @@ print(A)
 # the vector of estimated coefficients
 x = (np.linalg.inv(A.transpose()*p*A))*A.transpose()*p*f
 
+print("the estimated heights")
 print(x)
 
 # Estimated corrections
@@ -74,12 +66,16 @@ e = 6 # unknowns
 # Standard deviation
 sigma0 = np.sqrt((v.transpose()*p*v)/(n-e))
 
+print("the standard deviation of the unit weight")
+print(sigma0)
+
 # Co-factor matrix
 Q = np.linalg.inv(A.transpose()*p*A)
 
 # Variance-covariance matrix
 C = np.multiply(sigma0*sigma0, Q)
 
+print("the variance-covariance matrix")
 print(C)
 
 
