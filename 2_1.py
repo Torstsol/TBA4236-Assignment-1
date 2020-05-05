@@ -60,8 +60,8 @@ print(x)
 # Estimated corrections
 v = (A*x-f)
 
-n = 21 # Observations
-e = 6 # unknowns
+n = 11 # Observations
+e = 2 # unknowns
 
 # Standard deviation
 sigma0 = np.sqrt((v.transpose()*p*v)/(n-e))
