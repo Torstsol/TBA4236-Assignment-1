@@ -291,6 +291,7 @@ f = np.asmatrix([[2815018.3582,
                   -0.023]])
 
 f = f.transpose()
+np.set_printoptions(precision=8)
 
 
 # the vector of estimated coefficients
